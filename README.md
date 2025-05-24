@@ -1,4 +1,4 @@
-# pt-br-validator: Validações brasileiras para Laravel.
+# laravel-validator-ptbr: Validações brasileiras para Laravel.
 
 Esta biblioteca adiciona validações brasileira ao Laravel, como CPF, CNPJ, Placa de Carro, CEP, Telefone, Celular e afins.
 
@@ -52,14 +52,14 @@ cd /etc/www/projeto
 E então execute:
 
 ```
-composer require laravellegends/pt-br-validator
+composer require robertol/laravel-validator-ptbr
 ```
 
 Caso esteja utilizando uma versão desta biblioteca anterior a `5.2`, você deve o provider em `config/app.php`
 ```php
 'providers' => [
     // ... outros pacotes
-    LaravelLegends\PtBrValidator\ValidatorProvider::class
+    ValidatorPTBr\ValidatorProvider::class
 ]
 ```
 Agora, para utilizar a validação, basta fazer o procedimento padrão do `Laravel`.
@@ -68,6 +68,8 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 |           REGRA          |                                                                       Descrição                                                                       |
 |:-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| ddi                      | Valida se o campo está no formato com DDI (**`+55`**).                                                                                                |
+
 | Celular                  | Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)                                                                               |
 | celular_com_ddd          | Valida se o campo está no formato (**`(99)99999-9999`** ou **`(99)9999-9999`** ou **`(99) 99999-9999`** ou **`(99) 9999-9999`**)                      |
 | celular_com_codigo       | Valida se o campo está no formato `+99(99)99999-9999` ou +99(99)9999-9999.                                                                            |
@@ -155,32 +157,32 @@ public function messages() {
 Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter acesso as seguintes classes:
 
 ```
-\LaravelLegends\PtBrValidator\Rules\Celular::class
-\LaravelLegends\PtBrValidator\Rules\CelularComDdd::class
-\LaravelLegends\PtBrValidator\Rules\CelularComCodigo::class
-\LaravelLegends\PtBrValidator\Rules\Cnh::class
-\LaravelLegends\PtBrValidator\Rules\Cnpj::class
-\LaravelLegends\PtBrValidator\Rules\Cpf::class
-\LaravelLegends\PtBrValidator\Rules\Cns::class
-\LaravelLegends\PtBrValidator\Rules\FormatoCnpj::class
-\LaravelLegends\PtBrValidator\Rules\FormatoCpf::class
-\LaravelLegends\PtBrValidator\Rules\Telefone::class
-\LaravelLegends\PtBrValidator\Rules\TelefoneComDdd::class
-\LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class
-\LaravelLegends\PtBrValidator\Rules\FormatoCep::class
-\LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class
-\LaravelLegends\PtBrValidator\Rules\FormatoPis::class
-\LaravelLegends\PtBrValidator\Rules\Pis::class
-\LaravelLegends\PtBrValidator\Rules\CpfOuCnpj::class
-\LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj::class
-\LaravelLegends\PtBrValidator\Rules\Uf::class
+\ValidatorPTBr\Rules\Celular::class
+\ValidatorPTBr\Rules\CelularComDdd::class
+\ValidatorPTBr\Rules\CelularComCodigo::class
+\ValidatorPTBr\Rules\Cnh::class
+\ValidatorPTBr\Rules\Cnpj::class
+\ValidatorPTBr\Rules\Cpf::class
+\ValidatorPTBr\Rules\Cns::class
+\ValidatorPTBr\Rules\FormatoCnpj::class
+\ValidatorPTBr\Rules\FormatoCpf::class
+\ValidatorPTBr\Rules\Telefone::class
+\ValidatorPTBr\Rules\TelefoneComDdd::class
+\ValidatorPTBr\Rules\TelefoneComCodigo::class
+\ValidatorPTBr\Rules\FormatoCep::class
+\ValidatorPTBr\Rules\FormatoPlacaDeVeiculo::class
+\ValidatorPTBr\Rules\FormatoPis::class
+\ValidatorPTBr\Rules\Pis::class
+\ValidatorPTBr\Rules\CpfOuCnpj::class
+\ValidatorPTBr\Rules\FormatoCpfOuCnpj::class
+\ValidatorPTBr\Rules\Uf::class
 ```
 
-Por exemplo, se você deseja validar o formato do campo de um CPF, você pode utilizar a classe `LaravelLegends\PtBrValidator\Rules\FormatoCpf` da seguinte forma:
+Por exemplo, se você deseja validar o formato do campo de um CPF, você pode utilizar a classe `ValidatorPTBr\Rules\FormatoCpf` da seguinte forma:
 
 ```php
 use Illuminate\Http\Request;
-use LaravelLegends\PtBrValidator\Rules\FormatoCpf;
+use ValidatorPTBr\Rules\FormatoCpf;
 
 // testando?cpf=valor_invalido
 
@@ -212,7 +214,7 @@ Route::get('testando', function (Request $request) {
 
 ## Sugestões
 
-[Eloquent Filter](https://github.com/LaravelLegends/eloquent-filter): Essa biblioteca foi desenvolvida com o propósito de criar facilmente filtros de pesquisa para APIs REST. Com esta biblioteca, você vai economizar várias linhas de códigos, bem como manter um padrão global para filtros de pesquisa em sua aplicação escrita em Laravel.
+[Eloquent Filter](https://github.com/robertol/eloquent-filter): Essa biblioteca foi desenvolvida com o propósito de criar facilmente filtros de pesquisa para APIs REST. Com esta biblioteca, você vai economizar várias linhas de códigos, bem como manter um padrão global para filtros de pesquisa em sua aplicação escrita em Laravel.
 
 
 ## Doações

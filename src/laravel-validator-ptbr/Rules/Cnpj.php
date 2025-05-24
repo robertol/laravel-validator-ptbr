@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
@@ -31,7 +31,7 @@ class Cnpj implements Rule
         }
 
         // Remove sequências repetidas como "111111111111"
-        // https://github.com/LaravelLegends/pt-br-validator/issues/4
+        // https://github.com/LaravelLegends/laravel-validator-ptbr/issues/4
 
         elseif (preg_match("/^{$c[0]}{14}$/", $c) > 0) {
 

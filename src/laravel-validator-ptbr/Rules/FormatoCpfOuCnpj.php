@@ -1,17 +1,18 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
- */
-class FormatoCpf implements Rule
+*/
+class FormatoCpfOuCnpj implements Rule
 {
 
+    
     /**
-     * Valida o formato do cpf
+     * Valida o formato de CPF ou CNPJ
      * 
      * @param string $attribute
      * @param string $value
@@ -19,11 +20,11 @@ class FormatoCpf implements Rule
     */
     public function passes($attribute, $value)
     {
-        return preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $value) > 0;
+        return (new FormatoCpf)->passes($attribute, $value) || (new FormatoCnpj)->passes($attribute, $value);
     }
 
     public function message()
     {
-        return 'O campo :attribute não possui o formato válido de CPF.';
+        return 'O campo :attribute não possui o formato válido de CPF ou CNPJ.';
     }
 }

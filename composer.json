@@ -1,25 +1,30 @@
 {
-    "name": "laravellegends/pt-br-validator",
+    "name": "robertol/laravel-validator-ptbr",
     "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel",
     "license": "MIT",
     "authors": [
         {
             "name": "Wallace de Souza Vizerra",
             "email": "wallacemaxters@gmail.com"
+        },
+        {
+            "name": "Roberto Oliveira",
+            "email": "smuxbr@gmail.com"
         }
     ],
     "require": {
+        "php": ">= 7.2.0",
         "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0"
     },
     "autoload": {
         "psr-4": {
-            "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
+            "ValidatorPTBr\\": "src/laravel-validator-ptbr"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelLegends\\PtBrValidator\\ValidatorProvider"
+                "ValidatorPTBr\\ValidatorProvider"
             ]
         }
     },

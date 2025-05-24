@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
 */
-class CelularComCodigoSemMascara implements Rule
+class CelularComCodigo implements Rule
 {
 
     
@@ -20,11 +20,11 @@ class CelularComCodigoSemMascara implements Rule
     */
     public function passes($attribute, $value)
     {
-        return preg_match('/^[+]\d{1,2}\s?\d{2}\s?\d{4,5}\d{4}$/', $value) > 0;
+        return preg_match('/^[+][1-9]{2}\s?\(\d{2}\)\s?\d{4,5}\-\d{4}$/', $value) > 0;
     }
 
     public function message()
     {
-    	return 'O campo :attribute não é um celular válido. Exemplo de celular válido +5514999999999';
+    	return 'O campo :attribute não é um celular com DDD válido.';
     }
 }

@@ -2,7 +2,7 @@
 composer.phar
 composer.lock
 .DS_Store
-pt-br-validator.sublime-project
-pt-br-validator.sublime-workspace
+laravel-validator-ptbr.sublime-project
+laravel-validator-ptbr.sublime-workspace
 /.phpintel/
 .phpunit.cache/

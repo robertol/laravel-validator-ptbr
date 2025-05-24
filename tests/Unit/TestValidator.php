@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Validator;
-use LaravelLegends\PtBrValidatorValidator;
+use ValidatorPTBrValidator;
 
 class TestValidator extends Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)
     {
-        return [LaravelLegends\PtBrValidator\ValidatorProvider::class];
+        return [ValidatorPTBr\ValidatorProvider::class];
     }
 
     public function testTelefoneComDdd()
@@ -78,7 +78,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
-
     public function testCelular()
     {
         $correct = Validator::make(
@@ -148,7 +147,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
-
     public function testCnpj()
     {
         $correct = Validator::make(
@@ -165,8 +163,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($incorrect->fails());
 
-
-        // Correção do ISSUE: https://github.com/LaravelLegends/pt-br-validator/issues/4
+        // Correção do ISSUE: https://github.com/LaravelLegends/laravel-validator-ptbr/issues/4
 
         $repeats = [
             '00.000.000/0000-00',
@@ -185,7 +182,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
             $this->assertFalse($validator->passes(), "O CNPJ $cnpj foi marcado como verdadeiro, quando na verdade é FALSO");
         }
     }
-
 
     public function testCnpjFormato()
     {
@@ -221,7 +217,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
-
     public function testFormatoCep()
     {
         $cepsValidos = [
@@ -230,7 +225,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
             '07.550-000',
             '30.150-150'
         ];
-
 
         foreach ($cepsValidos as $cep) {
             $correct = Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
@@ -245,7 +239,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
             '300.40-000',
             '300.400-000'
         ];
-
 
         foreach ($cepsInvalidos as $cep) {
             $correct = Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
@@ -300,8 +293,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
     }
 
-
-
     public function testFormatoPis()
     {
         $validator = Validator::make(['valido' => '276.96730.83-0'], [ 'valido' => 'formato_pis' ]);
@@ -348,7 +339,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
             $this->assertTrue($validator->fails());
         }
     }
-
 
     public function testFormatoCpfOuCnpj()
     {
@@ -419,7 +409,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
     }
 
-
     public function testCns()
     {
         foreach ([
@@ -431,7 +420,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
             '103409299850000',
             '773398431180002',
         ] as $valor) {
-
             $validator = Validator::make(
                 ['valido' => $valor], 
                 ['valido' => ['required', 'cns']]
@@ -449,7 +437,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
             '123456789123456'
 
         ] as $valor) {
-
             $validator = Validator::make(
                 ['valido' => $valor], 
                 ['valido' => ['required', 'cns']]

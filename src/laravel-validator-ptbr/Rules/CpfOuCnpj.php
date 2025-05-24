@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
@@ -18,7 +18,6 @@ class CpfOuCnpj implements Rule
 	*/
 	public function passes($attribute, $value)
 	{
-
 		return (new Cpf)->passes($attribute, $value) || (new Cnpj)->passes($attribute, $value);
 	}
 

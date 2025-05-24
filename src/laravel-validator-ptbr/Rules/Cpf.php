@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
@@ -9,8 +9,6 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class Cpf implements Rule
 {
-
-
     /**
      * Valida se o CPF é válido
      * 

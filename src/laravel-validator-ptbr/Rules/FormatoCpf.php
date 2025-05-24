@@ -1,19 +1,17 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 /**
- * Validação para Formato do PIS
- * 
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class FormatoPis implements Rule
+class FormatoCpf implements Rule
 {
 
     /**
-     * Valida o formato do Número do PIS
+     * Valida o formato do cpf
      * 
      * @param string $attribute
      * @param string $value
@@ -21,11 +19,11 @@ class FormatoPis implements Rule
     */
     public function passes($attribute, $value)
     {
-        return preg_match('/^\d{3}\.\d{5}\.\d{2}-\d{1}$/', $value) > 0;
+        return preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $value) > 0;
     }
 
     public function message()
     {
-    	return 'O campo :attribute não é um PIS com formato válido.';
+        return 'O campo :attribute não possui o formato válido de CPF.';
     }
 }

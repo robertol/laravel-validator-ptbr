@@ -1,31 +1,29 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class FormatoCep implements Rule
+class Celular implements Rule
 {
 
-   
     /**
-     * Valida se o formato de CEP está correto
-     *
+     * Valida o formato do celular
      * @param string $attribute
      * @param string $value
      * @return boolean
     */
-
     public function passes($attribute, $value)
     {
-        return preg_match('/^\d{2}\.?\d{3}-\d{3}$/', $value) > 0;
+        return preg_match('/^\d{4,5}-\d{4}$/', $value) > 0;
     }
+
 
     public function message()
     {
-    	return 'O campo :attribute não possui um formato válido de CEP.';
+    	return 'O campo :attribute não é um celular válido.';
     }
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorPTBr\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
 */
-class FormatoCpfOuCnpj implements Rule
+class CelularComCodigoSemMascara implements Rule
 {
 
     
     /**
-     * Valida o formato de CPF ou CNPJ
+     * Valida o formato do celular com código do país
      * 
      * @param string $attribute
      * @param string $value
@@ -20,11 +20,11 @@ class FormatoCpfOuCnpj implements Rule
     */
     public function passes($attribute, $value)
     {
-        return (new FormatoCpf)->passes($attribute, $value) || (new FormatoCnpj)->passes($attribute, $value);
+        return preg_match('/^[+][1-9]{2}\s?\d{2}\s?\d{4,5}\d{4}$/', $value) > 0;
     }
 
     public function message()
     {
-        return 'O campo :attribute não possui o formato válido de CPF ou CNPJ.';
+    	return 'O campo :attribute não é um celular válido. Exemplo de celular válido +5514999999999';
     }
 }
