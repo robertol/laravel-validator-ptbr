@@ -26,6 +26,7 @@ class ValidatorProvider extends ServiceProvider
         $rules = [
             'celular'                        => \ValidatorPTBr\Rules\Celular::class,
             'celular_com_ddd'                => \ValidatorPTBr\Rules\CelularComDdd::class,
+            'celular_com_ddd_sem_mascara'    => \ValidatorPTBr\Rules\CelularComDddSemMascara::class,
             'celular_com_codigo'             => \ValidatorPTBr\Rules\CelularComCodigo::class,
             'celular_com_codigo_sem_mascara' => \ValidatorPTBr\Rules\CelularComCodigoSemMascara::class,
             'cnh'                            => \ValidatorPTBr\Rules\Cnh::class,
