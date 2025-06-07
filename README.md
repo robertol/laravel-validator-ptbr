@@ -135,25 +135,31 @@ public function messages() {
 Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter acesso as seguintes classes:
 
 ```
-\ValidatorPTBr\Rules\Celular::class
-\ValidatorPTBr\Rules\CelularComDdd::class
-\ValidatorPTBr\Rules\CelularComCodigo::class
-\ValidatorPTBr\Rules\Cnh::class
-\ValidatorPTBr\Rules\Cnpj::class
-\ValidatorPTBr\Rules\Cpf::class
-\ValidatorPTBr\Rules\Cns::class
-\ValidatorPTBr\Rules\FormatoCnpj::class
-\ValidatorPTBr\Rules\FormatoCpf::class
-\ValidatorPTBr\Rules\Telefone::class
-\ValidatorPTBr\Rules\TelefoneComDdd::class
-\ValidatorPTBr\Rules\TelefoneComCodigo::class
-\ValidatorPTBr\Rules\FormatoCep::class
-\ValidatorPTBr\Rules\FormatoPlacaDeVeiculo::class
-\ValidatorPTBr\Rules\FormatoPis::class
-\ValidatorPTBr\Rules\Pis::class
-\ValidatorPTBr\Rules\CpfOuCnpj::class
-\ValidatorPTBr\Rules\FormatoCpfOuCnpj::class
-\ValidatorPTBr\Rules\Uf::class
+\ValidatorPTBr\Rules\Celular::class,
+\ValidatorPTBr\Rules\CelularComDdd::class,
+\ValidatorPTBr\Rules\CelularComDddSemMascara::class,
+\ValidatorPTBr\Rules\CelularComCodigo::class,
+\ValidatorPTBr\Rules\CelularComCodigoSemMascara::class,
+\ValidatorPTBr\Rules\Cnh::class,
+\ValidatorPTBr\Rules\Cnpj::class,
+\ValidatorPTBr\Rules\CnpjAlpha::class,
+\ValidatorPTBr\Rules\Cns::class,
+\ValidatorPTBr\Rules\Cpf::class,
+\ValidatorPTBr\Rules\DDI::class,
+\ValidatorPTBr\Rules\DDISemMascara::class,
+\ValidatorPTBr\Rules\FormatoCnpj::class,
+\ValidatorPTBr\Rules\FormatoCnpjAlpha::class,
+\ValidatorPTBr\Rules\FormatoCpf::class,
+\ValidatorPTBr\Rules\Telefone::class,
+\ValidatorPTBr\Rules\TelefoneComDdd::class,
+\ValidatorPTBr\Rules\TelefoneComCodigo::class,
+\ValidatorPTBr\Rules\FormatoCep::class,
+\ValidatorPTBr\Rules\FormatoPlacaDeVeiculo::class,
+\ValidatorPTBr\Rules\FormatoPis::class,
+\ValidatorPTBr\Rules\Pis::class,
+\ValidatorPTBr\Rules\CpfOuCnpj::class,
+\ValidatorPTBr\Rules\FormatoCpfOuCnpj::class,
+\ValidatorPTBr\Rules\Uf::class,
 ```
 
 Por exemplo, se você deseja validar o formato do campo de um CPF, você pode utilizar a classe `ValidatorPTBr\Rules\FormatoCpf` da seguinte forma:
